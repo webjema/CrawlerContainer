@@ -1,6 +1,9 @@
 version: 0.2
 
 env:
+  variables:
+    IMAGE_REPO_NAME: "webjema/crawler1"
+    IMAGE_TAG: "prod"
   secrets-manager:
     dockerhubcredentials: arn:aws:secretsmanager:eu-west-1:004161417279:secret:docker-hub-AkBKhk
 

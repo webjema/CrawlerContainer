@@ -11,8 +11,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Docker Hub with credentials $dockerhubcredentials
-      - echo Docker Hub login $dockerhubcredentials["user"]
-      - docker login --username=$dockerhubcredentials.user --password=$dockerhubcredentials.password
+      - eval $(echo $dockerhubcredentials | sed -e 's/{/export /' -e 's/}//' -e 's/:/=/g' -e "s/,/; export /g")
+      - docker login --username=$user --password=$password
   build:
     commands:
       - echo Build started on `date`

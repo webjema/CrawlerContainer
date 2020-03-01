@@ -11,6 +11,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Docker Hub with credentials $dockerhubcredentials
+      - echo Docker Hub login $dockerhubcredentials["user"]
       - docker login --username=$dockerhubcredentials.user --password=$dockerhubcredentials.password
   build:
     commands:

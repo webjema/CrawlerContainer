@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   secrets-manager:
-    docker-hub-credentials: arn:aws:secretsmanager:eu-west-1:004161417279:secret:docker-hub-AkBKhk
+    dockerhubcredentials: arn:aws:secretsmanager:eu-west-1:004161417279:secret:docker-hub-AkBKhk
 
 phases:
   install:
@@ -10,8 +10,8 @@ phases:
       docker: 18
   pre_build:
     commands:
-      - echo Logging in to Docker Hub with credentials $docker-hub-credentials
-      - docker login --username=$docker-hub-credentials.user --password=$docker-hub-credentials.password
+      - echo Logging in to Docker Hub with credentials $dockerhubcredentials
+      - docker login --username=$dockerhubcredentials.user --password=$dockerhubcredentials.password
   build:
     commands:
       - echo Build started on `date`

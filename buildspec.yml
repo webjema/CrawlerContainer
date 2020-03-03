@@ -27,7 +27,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $IMAGE_REPO_NAME:$IMAGE_TAG
-      - printf '[{"name":"CrawlerContainer","imageUri":"%s"}]' registry.hub.docker.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
+      - printf '[{"name":"CrawlerContainerPriv","imageUri":"%s"}]' registry.hub.docker.com/$IMAGE_REPO_NAME:$IMAGE_TAG > imagedefinitions.json
 
 artifacts:
     files: imagedefinitions.json

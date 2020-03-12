@@ -12,5 +12,6 @@ ARG enviroment
 WORKDIR /usr/shared/crawler
 COPY resources/$enviroment/docker-compose.yaml ./docker-compose.yaml
 COPY resources/$enviroment/start.sh ./start.sh
+RUN mkdir logs
 RUN chmod +x ./start.sh
 ENTRYPOINT ["./start.sh"]

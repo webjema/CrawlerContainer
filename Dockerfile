@@ -7,8 +7,10 @@ RUN apk add --no-cache py-pip
 RUN apk add --no-cache python-dev libffi-dev openssl-dev gcc libc-dev make
 RUN pip install docker-compose
 
+ARG enviroment
+
 WORKDIR /usr/shared/crawler
-COPY docker-compose.yaml ./docker-compose.yaml
-COPY start.sh ./start.sh
+COPY resources/$enviroment/docker-compose.yaml ./docker-compose.yaml
+COPY resources/$enviroment/start.sh ./start.sh
 RUN chmod +x ./start.sh
 ENTRYPOINT ["./start.sh"]

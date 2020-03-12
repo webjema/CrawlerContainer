@@ -1,0 +1,12 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:3.141
+    ports:
+      - "80:4444"
+  chrome:
+    image: selenium/node-chrome:3.141
+    depends_on:
+      - hub
+    environment:
+      - HUB_HOST=hub
